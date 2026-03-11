@@ -40,14 +40,14 @@ const Cart = () => {
           </p>
         </div>
       )}
-      <div className="flex flex-col items-center overflow-scroll">
+      {cartItems.length > 0 && <div className="flex flex-col items-center overflow-y-scroll hide-scrollbar">
         {cartItems.map((item, index) => {
           return (
             <div
               key={item?.id}
-              className="w-1/2 h-50 border border-white rounded-xl bg-gray-400 p-4 mb-5"
+              className="w-1/2 h-50 border border-white rounded-xl bg-gray-400 p-4 mb-5f flex justify-start gap-5 mb-5"
             >
-              <div className="w-full h-1/2">
+              <div className="w-1/3 h-full">
                 <img src={item?.imgSrc} />
               </div>
               <div>
@@ -73,7 +73,7 @@ const Cart = () => {
             Clear Cart
           </button>
         )}
-      </div>
+      </div>}
     </section>
   );
 };

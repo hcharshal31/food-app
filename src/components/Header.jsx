@@ -53,7 +53,7 @@ const Header = ({ searchData, setMainData }) => {
         </button>
         <Link to="/cart" className="w-10 h-10 relative">
           <FaShoppingCart className="text-white w-10 h-10 leading-10" />{" "}
-          <span className="absolute left-4 top-[6px] text-black text-sm font-semibold z-10">
+          <span className="absolute left-4 top-1.5 text-black text-sm font-semibold z-10">
             {cartItems.length}
           </span>
         </Link>

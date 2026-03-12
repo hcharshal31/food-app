@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import React from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { clearCart, removeItem } from "../utils/cartSlice";
 import EmptyCart from "../assets/empty-cart-illustration-svg-download-png-8779492.webp";
@@ -7,10 +7,20 @@ import EmptyCart from "../assets/empty-cart-illustration-svg-download-png-877949
 const Cart = () => {
   const cartItems = useSelector((store) => store.cart.items);
 
+  let [total, setTotal] = useState(0);
+
+  useEffect(()=>{
+    let cartValue = cartItems.reduce((accumulator, item) =>{
+      return accumulator += item.price * item.count;
+    },0)
+    setTotal(cartValue);
+  }, [cartItems])
+  
+
   const dispatch = useDispatch();
 
-  const handleRemove = (index) => {
-    dispatch(removeItem(index));
+  const handleRemove = (id) => {
+    dispatch(removeItem(id));
   };
 
   const handleClearCart = () => {
@@ -52,26 +62,43 @@ const Cart = () => {
               </div>
               <div>
                 <h4>{item?.name}</h4>
-                <p>{item?.price}</p>
+                <p>{item?.price}<br/>
+                <span>Have {item.count} {item.name} for ${item.price * item.count}</span>
+                </p>
                 <button
                   className="bg-red-500 text-white rounded-lg px-4 py-1 mt-2 hover:bg-red-600"
                   onClick={() => {
-                    handleRemove(index);
+                    handleRemove(item.id);
                   }}
                 >
                   Remove
                 </button>
               </div>
+              <p className="font-semibold">Count {item?.count}</p>
             </div>
           );
         })}
+        
         {cartItems.length > 0 && (
+          <div className="flex justify-between w-1/2 h-15 items-center">
+            <h3 className="font-bold text-2xl">Total - ${total}</h3>
           <button
             className="bg-red-500 text-white rounded-lg px-4 py-1 mt-2 hover:bg-red-600"
-            onClick={handleClearCart}
           >
-            Clear Cart
+            Pay and Place Order
           </button>
+          </div>
+        )}
+
+{cartItems.length > 0 && (
+          <section className="flex justify-start w-1/2">
+            <button
+              className="bg-red-500 text-white rounded-lg px-4 py-1 mt-7.5 hover:bg-red-600"
+              onClick={handleClearCart}
+            >
+              Clear Cart
+            </button>
+          </section>
         )}
       </div>}
     </section>

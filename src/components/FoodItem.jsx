@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { addItem } from "../utils/cartSlice";
 import Loader from "./Loader";
 
-const FoodItem = ({ mainData }) => {
+const FoodItem = ({ searchData }) => {
   const dispatch = useDispatch();
 
   function handleAdd(item) {
@@ -11,12 +11,12 @@ const FoodItem = ({ mainData }) => {
     console.log(item);
   }
 
-  if (!mainData) return <Loader />;
+  if (!searchData) return <Loader />;
 
   return (
     <div className="flex justify-center pb-10">
       <div className="grid justify-center xl:grid-cols-5 lg:grid-cols-4 gap-7 w-9/10 md:grid-cols-3 sm:grid-cols-1">
-        {mainData?.map((item, index) => {
+        {searchData?.map((item, index) => {
           return (
             <div
               key={item?.id}

@@ -6,18 +6,25 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
 
-const Header = ({ searchData, setMainData }) => {
+const Header = ({ setSearchData, mainData }) => {
   const searchRef = useRef();
 
   const cartItems = useSelector((store) => store.cart.items);
 
   const searchFoodItem = (e) => {
     e.preventDefault();
-    const newData = searchData.filter((item) =>
-      item.name.toLowerCase().includes(searchRef.current.value.toLowerCase()),
+    const searchValue = searchRef.current.value.trim().toLowerCase();
+    if(!searchValue){
+      setSearchData(mainData);
+      return;
+    }
+    const newData = mainData.filter((item) =>
+      item.name.toLowerCase().includes(searchValue),
     );
-    setMainData(newData);
+    setSearchData(newData);
   };
+
+  
 
   const showSideBar = () => {};
 
@@ -30,7 +37,7 @@ const Header = ({ searchData, setMainData }) => {
         onClick={showSideBar}
       />
 
-      <form className="w-1/2">
+      <form className="w-1/2" onSubmit={searchFoodItem}>
         <input
           ref={searchRef}
           className="bg-gray-600 w-4/6 h-10 p-2 text-white rounded-lg"
@@ -38,8 +45,8 @@ const Header = ({ searchData, setMainData }) => {
           placeholder="Search food item..."
         />
         <button
+          type="submit"
           className="bg-red-500 w-25 h-10 text-lg text-white border-0 rounded-lg ml-5 font-semibold"
-          onClick={searchFoodItem}
         >
           Search
         </button>

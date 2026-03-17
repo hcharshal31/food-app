@@ -55,18 +55,18 @@ const Cart = () => {
           return (
             <div
               key={item?.id}
-              className="w-1/2 h-50 border border-white rounded-xl bg-gray-400 p-4 mb-5f flex justify-start gap-5 mb-5"
+              className="w-1/2 h-50 bg-white rounded-xl bg-gray-400 p-4 mb-5f flex justify-start gap-5 mb-5 relative text-black"
             >
               <div className="w-1/3 h-full">
-                <img src={item?.imgSrc} />
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYG1zLcjrGZwQO_F5Hw5U98JFtqLq2cEC_gw&s" alt={item?.name} />
               </div>
               <div>
-                <h4>{item?.name}</h4>
+                <h4 className="font-bold">{item?.name}</h4>
                 <p>{item?.price}<br/>
                 <span>Have {item.count} {item.name} for ${item.price * item.count}</span>
                 </p>
                 <button
-                  className="bg-red-500 text-white rounded-lg px-4 py-1 mt-2 hover:bg-red-600"
+                  className="bg-red-500 text-white rounded-lg px-4 py-1 mt-2 hover:bg-red-600 absolute top-1 left-2 shadow-[10px_10px_15px_rgba(0,0,0,0.8)]"
                   onClick={() => {
                     handleRemove(item.id);
                   }}
@@ -74,7 +74,7 @@ const Cart = () => {
                   Remove
                 </button>
               </div>
-              <p className="font-semibold">Count {item?.count}</p>
+              <p className="font-semibold absolute top-2 right-2">Count {item?.count}</p>
             </div>
           );
         })}

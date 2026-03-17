@@ -29,7 +29,7 @@ const Header = ({ setSearchData, mainData }) => {
   const showSideBar = () => {};
 
   return (
-    <div className="w-full h-25 p-8 flex items-center justify-between bg-black">
+    <div className="w-full h-20 px-8 flex items-center justify-between bg-black fixed top-0 left-0 z-50 border-b-1 border-b-white">
       <FontAwesomeIcon
         icon={faBars}
         style={{ color: "white" }}
@@ -37,7 +37,7 @@ const Header = ({ setSearchData, mainData }) => {
         onClick={showSideBar}
       />
 
-      <form className="w-1/2" onSubmit={searchFoodItem}>
+      <form className="flex-1 mx-6 flex" onSubmit={searchFoodItem}>
         <input
           ref={searchRef}
           className="bg-gray-600 w-4/6 h-10 p-2 text-white rounded-lg"

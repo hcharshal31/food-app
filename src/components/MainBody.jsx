@@ -29,7 +29,7 @@ const MainBody = () => {
   if(error) return <Error />
 
   return (
-    <div className="h-screen overflow-y-scroll hide-scrollbar">
+    <div className="h-screen relative overflow-y-scroll hide-scrollbar pt-10">
       <Header
         setSearchData={setSearchData}
         mainData={data}

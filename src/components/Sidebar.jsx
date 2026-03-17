@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const Sidebar = () => {
     return(
         <div className="w-full h-full border-r border-white bg-black text-white p-5 overflow-y-auto hide-scrollbar">
-            <div className="flex justify-between items-center flex-col">
+            <div className="flex justify-between items-center flex-col pt-10">
                 <img src={logo} alt="Logo" />
                 <h2 className="name text-2xl font-bold text-center">Famous Chicken Lapeta</h2>
                 <p id="slogan" className="text-red-500 text-xl pt-2.5">Eat Repeat</p>

@@ -20,16 +20,16 @@ const FoodItem = ({ searchData }) => {
           return (
             <div
               key={item?.id}
-              className="h-50 border border-white rounded-xl bg-gray-400 p-4"
+              className="h-50 border border-white rounded-xl bg-gray-400 relative"
             >
               <div className="w-full h-1/2">
                 <img
-                  src={`https://source.unsplash.com/featured/400x300/?${item.name}`}
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYG1zLcjrGZwQO_F5Hw5U98JFtqLq2cEC_gw&s"
                   alt={item.name}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover rounded-tl-xl rounded-tr-xl"
                 />
               </div>
-              <div>
+              <div className="p-4 pt-2">
                 <h4>
                   {item?.name?.length > 12
                     ? item?.name.slice(0, 13) + "..."
@@ -37,7 +37,7 @@ const FoodItem = ({ searchData }) => {
                 </h4>
                 <p>{item?.price}</p>
                 <button
-                  className="bg-red-500 text-white rounded-lg px-4 py-1 mt-2 hover:bg-red-600"
+                  className="bg-red-500 text-white rounded-lg px-4 py-1 mt-2 hover:bg-red-600 absolute bottom-1.5 right-1.5"
                   onClick={() => handleAdd(item)}
                 >
                   Add

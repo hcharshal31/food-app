@@ -14,7 +14,7 @@ const Header = ({ setSearchData, mainData }) => {
   const searchFoodItem = (e) => {
     e.preventDefault();
     const searchValue = searchRef.current.value.trim().toLowerCase();
-    if(!searchValue){
+    if (!searchValue) {
       setSearchData(mainData);
       return;
     }
@@ -24,12 +24,10 @@ const Header = ({ setSearchData, mainData }) => {
     setSearchData(newData);
   };
 
-  
-
   const showSideBar = () => {};
 
   return (
-    <div className="w-full h-20 px-8 flex items-center justify-between bg-black fixed top-0 left-0 z-50 border-b-1 border-b-white">
+    <div className="w-full h-20 px-8 flex items-center justify-between bg-black fixed top-0 left-0 z-50 border-b border-b-white">
       <FontAwesomeIcon
         icon={faBars}
         style={{ color: "white" }}

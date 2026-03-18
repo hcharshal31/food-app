@@ -15,12 +15,12 @@ const FoodItem = ({ searchData }) => {
 
   return (
     <div className="flex justify-center pb-10">
-      <div className="grid justify-center xl:grid-cols-5 lg:grid-cols-4 gap-7 w-9/10 md:grid-cols-3 sm:grid-cols-1">
+      <div className="grid justify-center lg:grid-cols-4 gap-x-10 gap-y-7.5 w-9/10 md:grid-cols-3 sm:grid-cols-1">
         {searchData?.map((item, index) => {
           return (
             <div
               key={item?.id}
-              className="h-50 bg-white rounded-xl bg-gray-400 relative rounded-xl shadow-md 
+              className="h-50 bg-white relative rounded-xl shadow-md 
                 transform transition-all duration-300 ease-in-out 
                 hover:scale-110 hover:-translate-y-1 hover:shadow-2xl 
                 cursor-pointer"

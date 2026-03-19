@@ -1,30 +1,29 @@
-import React, { useEffect } from 'react'
-import './App.css'
-import Sidebar from './components/Sidebar'
-import { Outlet, createBrowserRouter } from 'react-router-dom';
+import React, { useEffect } from "react";
+import "./App.css";
+import Sidebar from "./components/Sidebar";
+import { Outlet, createBrowserRouter } from "react-router-dom";
 import MainBody from "./components/MainBody";
 import Error from "./components/Error";
 import Cart from "./components/Cart";
-import Order from './components/Order';
-import Wallet from './components/Wallet';
-import Profile from './components/Profile';
+import Order from "./components/Order";
+import Wallet from "./components/Wallet";
+import Profile from "./components/Profile";
 
 function App() {
-
   useEffect(() => {
-    alert("Thanks for visiting us")
-  }, [])
+    alert("Thanks for visiting us");
+  }, []);
 
   return (
-    <div className='bg-black h-screen flex w-full'>
-      <div className='w-1/4'>
+    <div className="bg-gray-900 h-screen flex w-full">
+      <div className="w-1/4">
         <Sidebar />
       </div>
-      <div className='w-3/4 p-5'>
+      <div className="w-3/4 p-5">
         <Outlet />
       </div>
     </div>
-  )
+  );
 }
 
 const appRouter = createBrowserRouter([
@@ -34,7 +33,7 @@ const appRouter = createBrowserRouter([
     errorElement: <Error />,
     children: [
       {
-        index: true,       // default route
+        index: true, // default route
         element: <MainBody />,
       },
       {
@@ -56,7 +55,7 @@ const appRouter = createBrowserRouter([
       {
         path: "profile",
         element: <Profile />,
-      }
+      },
     ],
   },
 ]);

@@ -10,12 +10,12 @@
   height: 100vh;
 }
 
-.hide-scrollbar::-webkit-scrollbar{
+.hide-scrollbar::-webkit-scrollbar {
   display: none;
 }
 
-body{
-  background-color: #000000;
+body {
+  background-color: #444444;
   overflow-y: hidden;
   padding-bottom: 0;
 }
